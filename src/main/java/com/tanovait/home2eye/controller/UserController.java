@@ -31,4 +31,9 @@ public class UserController {
         return ResponseEntity.
                 created(ucBuilder.path("/users/{userId}").buildAndExpand(newUser.getId()).toUri()).build();
     }
+
+    @RequestMapping("/hello")
+    public String helloWorld(@RequestParam(value="name", defaultValue="World") String name) {
+        return "Hello "+name+"!!";
+    }
 }
